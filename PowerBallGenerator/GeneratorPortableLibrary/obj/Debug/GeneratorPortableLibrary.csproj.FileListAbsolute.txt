@@ -1,0 +1,8 @@
+C:\Users\derek\Desktop\Development\RandomGenerator\PowerBallGenerator\GeneratorPortableLibrary\bin\Debug\GeneratorPortableLibrary.dll
+C:\Users\derek\Desktop\Development\RandomGenerator\PowerBallGenerator\GeneratorPortableLibrary\bin\Debug\GeneratorPortableLibrary.pdb
+C:\Users\derek\Desktop\Development\RandomGenerator\PowerBallGenerator\GeneratorPortableLibrary\obj\Debug\GeneratorPortableLibrary.dll
+C:\Users\derek\Desktop\Development\RandomGenerator\PowerBallGenerator\GeneratorPortableLibrary\obj\Debug\GeneratorPortableLibrary.pdb
+C:\Users\derek\Desktop\Development\RandomGenerator\PowerBallGenerator\GeneratorPortableLibrary\obj\Debug\GeneratorPortableLibrary.dll.mdb
+C:\Users\derek\Desktop\Development\RandomGenerator\PowerBallGenerator\GeneratorPortableLibrary\bin\Debug\GeneratorPortableLibrary.dll.mdb
+C:\Users\derek\Desktop\Development\RandomGenerator\PowerBallGenerator\GeneratorPortableLibrary\obj\Debug\GeneratorPortableLibrary.dll.mdb
+C:\Users\derek\Desktop\Development\RandomGenerator\PowerBallGenerator\GeneratorPortableLibrary\bin\Debug\GeneratorPortableLibrary.dll.mdb

@@ -1,1 +1,1 @@
-<resources><string name="Hello">Hello World, Click Me!</string><string name="ApplicationName">PowerBallGenerator</string></resources>
+<resources><string name="Hello">Generate Number</string><string name="ApplicationName">PowerBallGenerator</string><string name="SelectDrawNumber"> Select Set To Be Generated: </string></resources>
