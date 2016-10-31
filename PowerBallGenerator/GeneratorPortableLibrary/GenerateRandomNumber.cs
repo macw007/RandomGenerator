@@ -8,14 +8,19 @@ namespace GeneratorPortableLibrary
     {
 
         protected  List<PowerBall> ListGenerated { get;private set;}
+        private LinearRandomNumber seedGenerator;
+        private List<int> fivenumbers;
         public GenerateRandomNumber()
         {
             ListGenerated = new List<PowerBall>();
+            
         }
         
 
         public List<PowerBall> GenerateList(int count)
         {
+            seedGenerator = new LinearRandomNumber(count);
+
             for(int i=0;i<count;i++)
             {
                 ListGenerated.Add(generateNumber());
@@ -23,44 +28,62 @@ namespace GeneratorPortableLibrary
             return ListGenerated;
         }
 
-        private int numberToGenerate(List<int> listgenerated)
+        private void numberToGenerate()
         {
-            var date = DateTime.Now.ToString("yyMMddHHmm");
-            var seed = Convert.ToInt32(date);
-            var rand = new Random(seed);
-            var number = rand.Next(1, 69);
-            for(int i=0;i<listgenerated.Count;i++)
+            fivenumbers = new List<int>();
+            var time = DateTime.Now.ToString("HHmmss");
+            var seed = Convert.ToInt32(time);
+            seedGenerator = new LinearRandomNumber(1233);
+            var random = new Random(seedGenerator.Next(seed));
+            var number = random.Next(1, 69);
+            while(fivenumbers.Count<5)
             {
-                if(listgenerated[i]==number)
+                if(doesNumberExist(number,fivenumbers))
                 {
-                    i--;
-                    date = DateTime.Now.ToString("yyMMddHHmm");
-                    seed = Convert.ToInt32(date);
-                    rand = new Random(seed);
-                    number = rand.Next(1, 69);
+                     time = DateTime.Now.ToString("HHmmss");
+                     seed = Convert.ToInt32(time);
+                    var modular = seed % 30;
+                    seedGenerator = new LinearRandomNumber(modular);
+                     random = new Random(seedGenerator.Next(seed));
+                     number = random.Next(1, 69);
                 }
-            }            
-            listgenerated.Add(number);
-            return number;
+                else
+                {
+                    fivenumbers.Add(number);
+                    number = random.Next(1, 69);
+                }
+            }
+        }
+
+        private bool doesNumberExist(int number,List<int> listgenerated)
+        {
+            for (int i = 0; i < listgenerated.Count; i++)
+            {
+                if (listgenerated[i] == number)
+                {
+                    return true;
+                }
+            }
+                return false;
         }
         private int generatePowerNumber()
         {
             var date = DateTime.Now.ToString("yyMMddHHmm");
             var seed = Convert.ToInt32(date);
-            Random rand = new Random(seed);
+            Random rand = new Random(seedGenerator.Next(seed));
             var number = rand.Next(1, 26);
             return number;
         }
 
         private PowerBall generateNumber()
         {
-            List<int> local = new List<int>(5);
+            numberToGenerate();
             var PowerBallObject = new PowerBall();
-            PowerBallObject.FirstNumber = numberToGenerate(local);
-            PowerBallObject.SecondNumber = numberToGenerate(local);
-            PowerBallObject.ThirdNumber = numberToGenerate(local);
-            PowerBallObject.FourthNumber = numberToGenerate(local);
-            PowerBallObject.FifthNumber = numberToGenerate(local);
+            PowerBallObject.FirstNumber = fivenumbers[0];
+            PowerBallObject.SecondNumber = fivenumbers[1];
+            PowerBallObject.ThirdNumber = fivenumbers[2];
+            PowerBallObject.FourthNumber = fivenumbers[3];
+            PowerBallObject.FifthNumber = fivenumbers[4];
             PowerBallObject.PowerNumber = generatePowerNumber();
             return PowerBallObject;
         }

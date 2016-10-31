@@ -73,5 +73,10 @@ namespace PowerBallGenerator
 
             return row;
         }
+
+        public void ClearData()
+        {
+            mItems.Clear();
+        }
     }
 }
